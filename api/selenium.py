@@ -1,6 +1,6 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver import ChromeOptions
-
+from selenium.webdriver.support.wait import WebDriverWait
 
 class Selenium(object):
     def __init__(self):
@@ -20,3 +20,6 @@ class Selenium(object):
 
     def title(self):
         return self.driver.title
+
+    def wait_until(self, element, timeout=10):
+        WebDriverWait(self.driver, timeout).until(lambda x: x.find_element(element[0],element[1]))
